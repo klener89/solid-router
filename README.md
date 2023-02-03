@@ -529,11 +529,10 @@ The setter method accepts an object whose entries will be merged into the curren
 
 ```js
 const [searchParams, setSearchParams] = useSearchParams();
-
 return (
   <div>
     <span>Page: {searchParams.page}</span>
-    <button onClick={() => setSearchParams({ page: searchParams.page + 1 })}>Next Page</button>
+    <button onClick={() => setSearchParams({ page: (parseInt(searchParams.page) || 0) + 1 })}>Next Page</button>
   </div>
 );
 ```
